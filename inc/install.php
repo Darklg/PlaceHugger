@@ -22,5 +22,9 @@ RewriteRule ^([0-9]+)/([0-9]+)/new$   /".$chemin_site."/index.php?width=$1&heigh
 @mkdir(TPL_DIR.'cache/');
 @chmod(TPL_DIR.'cache/',0755);
 
+// Création du dossier images
+@mkdir(TPL_DIR.'images/');
+@chmod(TPL_DIR.'images/',0755);
+
 echo 'install ok. plz reload';
 die;
