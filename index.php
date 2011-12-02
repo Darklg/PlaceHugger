@@ -1,12 +1,11 @@
 <?php
 $config_file = dirname(__FILE__).'/config.php';
-if(file_exists($config_file))
+if(file_exists($config_file)){
 	include $config_file;
-else {
+} else {
 	define('TPL_DIR',dirname(__FILE__).'/');
 	include TPL_DIR.'inc/install.php';
 }
-
 
 // Si aucune valeur, page de présentation.
 if(!isset($_GET['width'])){
@@ -30,7 +29,6 @@ $image = imagecreatetruecolor($width, $height);
 
 // On genere l'image temporaire
 $images_temp = glob(PL_DIR.'images/*.jpg');
-
 if(empty($images_temp)){
 	exit('Aucune image pour travailler.');
 }
@@ -61,6 +59,7 @@ else if($rapport_image_temp < $rapport_base){
 	$height_redim = $width / $rapport_image_temp;
 	$dst_y = ($height-$height_redim)/2;
 }
+
 imagecopyresampled($image, $image_temp, $dst_x, $dst_y, 0, 0, $width_redim, $height_redim, $image_temp_x, $image_temp_y);
 
 // Le fichier est au format JPG
