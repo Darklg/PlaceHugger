@@ -3,12 +3,8 @@ $config_file = dirname(__FILE__).'/config.php';
 if(file_exists($config_file))
 	include $config_file;
 else {
-	
 	define('TPL_DIR',dirname(__FILE__).'/');
-
 	include TPL_DIR.'inc/install.php';
-
-
 }
 
 

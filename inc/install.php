@@ -8,9 +8,11 @@ if(count($chemin_site_tmp) > 2){
 	$ndd = $_SERVER['SERVER_NAME'];
 }
 
+// Creation du fichier de config
 file_put_contents($config_file,"<?php\n".
 "define('PL_DIR', '".TPL_DIR."');\n".
 "define('PL_URL', 'http://".$ndd.'/'.$chemin_site."');\n");
+
 // Re-Creation du htaccess
 file_put_contents('.htaccess',"
 Options +FollowSymlinks
@@ -27,5 +29,6 @@ RewriteRule ^([0-9]+)/([0-9]+)/new$   /".$chemin_site."index.php?width=$1&height
 @mkdir(TPL_DIR.'images/');
 @chmod(TPL_DIR.'images/',0755);
 
+// Reload après install.
 echo '<script>location.reload(true);</script>';
 die;
