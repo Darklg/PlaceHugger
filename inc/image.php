@@ -3,11 +3,7 @@
 // On génère l'image de base
 $image = imagecreatetruecolor($width, $height);
 
-// On genere l'image temporaire
-$images_temp = glob(PL_DIR.'images/*.jpg');
-if(empty($images_temp)){
-	exit('Aucune image pour travailler.');
-}
+// On recupere une image temporaire au hasard
 $img_temp = $images_temp[rand(0, count($images_temp)-1)];
 $image_temp = imagecreatefromjpeg($img_temp); 
 
