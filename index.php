@@ -24,7 +24,7 @@ $mode = (isset($_GET['mode']) && array_key_exists($_GET['mode'],$modes)) ? $_GET
 $filename = 'cache/'.$width.'x'.$height.'x'.$mode.'.jpg';
 
 // Si un cache existe et est demandé
-if(file_exists(PL_DIR.$filename) && $mode != 'new'){
+if(file_exists(PL_DIR.$filename) && $mode != 'new' && !PL_DEBUG){
 	header('location:'.PL_URL.$filename);
 	exit();
 }

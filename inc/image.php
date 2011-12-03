@@ -34,14 +34,26 @@ else if($rapport_image_temp < $rapport_base){
 
 imagecopyresampled($image, $image_temp, $dst_x, $dst_y, 0, 0, $width_redim, $height_redim, $image_temp_x, $image_temp_y);
 
+
+// Si on est en mode dimensions : on ajoute les dimensions en dur dans l'image
+if($mode == 'dim'){
+	$hauteur_dim = 15;
+	$calque_dim = imagecreatetruecolor($width, $hauteur_dim);
+	$blanc = imagecolorallocate($calque_dim, 255, 255, 255);
+	$noir = imagecolorallocate($calque_dim, 0, 0, 0);
+	ImageFilledRectangle ($calque_dim, 0, 0, $width, $hauteur_dim, $noir);	
+	imagestring($calque_dim, 2, 2, 0, $width.'x'.$height, $blanc);
+	imagecopymerge($image, $calque_dim, 0, 0, 0, 0, $width, $hauteur_dim, 70);
+}
+
 // Le fichier est au format JPG
 header ("Content-type: image/jpg");
 
 // On genere l'image finale ( si un fichier aleatoire n'est pas demandé )
 if($mode != 'new'){
-	imagejpeg($image,PL_DIR.$filename);
+	imagejpeg($image,PL_DIR.$filename,85);
 }
 
 // On affiche l'image finale
-imagejpeg($image);
+imagejpeg($image,NULL,85);
 
