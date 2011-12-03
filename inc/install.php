@@ -19,7 +19,7 @@ Options +FollowSymlinks -Indexes
 RewriteEngine on
 RewriteRule ^([0-9]+)$   /".$chemin_site."index.php?width=$1&height=$1 [L]
 RewriteRule ^([0-9]+)/([0-9]+)$   /".$chemin_site."index.php?width=$1&height=$2 [L]
-RewriteRule ^([0-9]+)/([0-9]+)/new$   /".$chemin_site."index.php?width=$1&height=$2&new [L]
+RewriteRule ^([0-9]+)/([0-9]+)/([a-z]+)$   /".$chemin_site."index.php?width=$1&height=$2&mode=$3 [L]
 </IfModule>
 ");
 

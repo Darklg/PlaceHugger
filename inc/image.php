@@ -37,7 +37,11 @@ imagecopyresampled($image, $image_temp, $dst_x, $dst_y, 0, 0, $width_redim, $hei
 // Le fichier est au format JPG
 header ("Content-type: image/jpg");
 
-// On genere l'image finale
-imagejpeg($image,PL_DIR.$filename);
+// On genere l'image finale ( si un fichier aleatoire n'est pas demandé )
+if($mode != 'new'){
+	imagejpeg($image,PL_DIR.$filename);
+}
+
+// On affiche l'image finale
 imagejpeg($image);
 

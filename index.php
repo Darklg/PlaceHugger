@@ -20,10 +20,11 @@ if(!isset($_GET['width'])){
 // On recupere les valeurs depuis GET
 $width = (isset($_GET['width']) && ctype_digit($_GET['width'])) ? $_GET['width'] : 100;
 $height = (isset($_GET['height']) && ctype_digit($_GET['height'])) ? $_GET['height'] : $width;
-$filename = 'cache/'.$width.'x'.$height.'.jpg';
+$mode = (isset($_GET['mode']) && array_key_exists($_GET['mode'],$modes)) ? $_GET['mode'] : 'default'; 
+$filename = 'cache/'.$width.'x'.$height.'x'.$mode.'.jpg';
 
 // Si un cache existe et est demandé
-if(file_exists(PL_DIR.$filename) && !isset($_GET['new'])){
+if(file_exists(PL_DIR.$filename) && $mode != 'new'){
 	header('location:'.PL_URL.$filename);
 	exit();
 }

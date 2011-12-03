@@ -4,6 +4,11 @@ if(!defined('PL_SITENAME')){
 	define('PL_SITENAME','PlaceHugger');
 }
 
+// Modes d'appel de l'image
+$modes = array(
+	'default' => array(),
+	'new' => array(),
+);
 
 // On récupère les images utilisables
 $images_temp = glob(PL_DIR.'images/*.jpg');
