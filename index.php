@@ -1,17 +1,19 @@
 <?php
-$config_file = dirname(__FILE__).'/pl-config.php';
+define('PL_DIR',dirname(__FILE__).'/');
+
+$config_file = PL_DIR.'/pl-config.php';
+
 if(file_exists($config_file)){
 	include $config_file;
 } else {
-	define('TPL_DIR',dirname(__FILE__).'/');
-	include TPL_DIR.'inc/install.php';
+	include PL_DIR.'inc/install.php';
 }
 
-include dirname(__FILE__).'/inc/main-config.php';
+include PL_DIR.'inc/main-config.php';
 
 // Si aucune valeur, page de présentation.
 if(!isset($_GET['width'])){
-	include dirname(__FILE__).'/inc/home.php';
+	include PL_DIR.'inc/home.php';
 	exit();
 }
 

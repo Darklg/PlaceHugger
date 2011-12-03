@@ -10,7 +10,6 @@ if(count($chemin_site_tmp) > 2){
 
 // Creation du fichier de config
 file_put_contents($config_file,"<?php\n".
-"define('PL_DIR', '".TPL_DIR."');\n".
 "define('PL_URL', 'http://".$ndd.'/'.$chemin_site."');\n");
 
 // Re-Creation du htaccess
@@ -25,12 +24,12 @@ RewriteRule ^([0-9]+)/([0-9]+)/new$   /".$chemin_site."index.php?width=$1&height
 ");
 
 // Création du dossier cache
-@mkdir(TPL_DIR.'cache/');
-@chmod(TPL_DIR.'cache/',0755);
+@mkdir(PL_DIR.'cache/');
+@chmod(PL_DIR.'cache/',0755);
 
 // Création du dossier images
-@mkdir(TPL_DIR.'images/');
-@chmod(TPL_DIR.'images/',0755);
+@mkdir(PL_DIR.'images/');
+@chmod(PL_DIR.'images/',0755);
 
 // Reload après install.
 echo '<script>location.reload(true);</script>';
