@@ -5,12 +5,14 @@
 	<title><?php echo PL_SITENAME; ?></title>
     </head>
     <body>
+		<h1><?php echo PL_SITENAME; ?></h1>
+		<p>Génération simple d'images "placeholder"</p>
 		<table>
 		    <tbody>
-		        <tr>
+	        	<tr>
 		            <td>
-						<img src="<?php echo PL_URL; ?>200/200" alt="" /><br />
-						<input type="text" value="<?php echo PL_URL; ?>200/200" style="width:195px;" />
+						<img src="<?php echo PL_URL; ?>200" alt="" /><br />
+						<input type="text" value="<?php echo PL_URL; ?>200" style="width:195px;" />
 		            </td>
 		            <td>
 						<img src="<?php echo PL_URL; ?>300/200" alt="" /><br />
